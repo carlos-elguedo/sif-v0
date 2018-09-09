@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+	<title>Informaci&oacute;n del trabajador</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        
+        <script src="assets/js/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                //alert("ready");setTimeout(codigo(), 1000);
+                var num = $_GET("cont");
+                //alert("Llego");
+                $.ajax({
+                      url: "http://localhost/SIF/servidor/logica/infoTrabajador.php",//url del servidor
+                      type: "post",
+                      data:{cont:num}
+                }).done(function(res){//cuando ya este listo
+                    //alert("Mando");
+                    //alert(res);
+                    $("body").html("");//limpiamos la salida
+                    $("body").html(res);//ponemos la respuesta en la division de busqueda 
+                });//fin del done
+            });
+            
+            
+            function $_GET(param){//funcion que devuelve el parametro recibido en la url recibiendo el nombre del parametro
+                url = document.URL;
+                url = String(url.match(/\?+.+/));		
+                url = url.replace("?", "");		
+                url = url.split("&");
+                x = 0;
+                while (x < url.length){
+                    p = url[x].split("=");
+                    if (p[0] == param){
+                        return decodeURIComponent(p[1]);
+                    }
+                    x++;
+                }
+            }//FIN DE LA FUNCION
+        </script>
+        
+        <link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    </head>
+    <body>
+		
+    </body>
+</html>

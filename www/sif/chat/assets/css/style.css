@@ -1,0 +1,130 @@
+
+/*======================================
+    GENERAL STYLES
+======================================= */
+
+.pad-top {
+    padding-top:0px;
+}
+.pad-bottom {
+     padding-bottom:0px;
+}
+/*======================================
+    CHAT BOX STYLES
+======================================= */
+
+.hr-clas {
+    border-top: 1px solid #ef4300;
+}
+
+.chat-box-main {
+    overflow:auto;
+}
+.chat-box-div {
+    border:2px solid #ef4300;
+    border-bottom:5px solid #ef4300;
+} 
+.chat-box-head {
+    padding: 10px 15px;
+    border-bottom: 5px solid #ef4300;
+    background-color: #ef4300;
+    color: #fff;
+    text-align: center;
+}
+
+.chat-box-left {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    position: relative;
+    border: 2px solid #C5C5C5;
+    font-size:16px;
+}
+.chat-box-left:after {
+    top: 100%;
+    left: 10%;
+    border: solid transparent;
+    content: " ";
+    position: absolute;
+    border-top-color: #C5C5C5;
+    border-width: 15px;
+    margin-left: -15px;
+}
+
+.chat-box-name-left {
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align:left;
+    color:black;
+}
+    .chat-box-name-left img {
+        max-width:50px;
+        border: 2px solid black;
+    }
+
+.chat-box-right {
+    /*background-color: #ef4300;*/
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    position: relative;
+    border: 1px solid #ef4300;
+    font-size:16px;
+    text-align: right;
+    /*color: white*/
+}
+.chat-box-right:after {
+    top: 100%;
+    right: 10%;
+    border: solid transparent;
+    content: " ";
+    position: absolute;
+    border-top-color: #ef4300;
+    border-width: 15px;
+    margin-left: -15px;
+    text-align: right;
+}
+
+.chat-box-name-right {
+    color: #ef4300;
+    margin-top: 20px;
+    margin-right: 20px;
+    text-align:right;
+}
+
+.chat-box-name-right img {
+        max-width:40px;
+        border: 2px solid #ef4300;
+    }
+.chat-box-footer {
+    background-color: #D8D8D8;
+    padding: 10px;
+}
+/*======================================
+    Mios....................................................
+======================================= */
+
+
+a{
+    color: whitesmoke;
+}
+
+.superior{
+    display: inline-block;
+}
+.superior:first-child{
+    float: left;
+}
+.superior:last-child{
+    float: right;
+}
+body {
+   font-family:Verdana;
+    border:0px 5px 0px 5px solid #ef4300;
+}

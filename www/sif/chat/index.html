@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <title>SIF - chat</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no"/>
+    <style>
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }  @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }           @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+    </style>
+    <script src="assets/js/app.js"></script>           <!-- recommended location of your JavaScript code relative to other JS files -->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME  CSS -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/js/source/jquery.fancybox.css" rel="stylesheet" />
+    
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="row pad-top pad-bottom">
+            
+            <!--****************************************************   BLOQUEO    ***************************************************-->
+            <div class="row text-center" style="display: none;">
+                <div class="col-md-4 col-sm-4">
+                    <a class="fancybox-media" title="Presiona en la X para cerrar" href="#bloqueo-bloqueo" id="bloqueo">
+                        <!--  Path for image to open -->
+                        <img src="assets/img/portfolio/image.jpg" class="img-responsive " alt="" />
+                        <!-- Path for image to display -->
+                    </a>
+                    <div id="bloqueo-bloqueo" style="display: none;">
+                        <img src="assets/img/portfolio/bloquear.jpg" class="img-responsive " alt="" />
+                        <label>Bloquear a Este usuario</label>
+                        <br />
+                        <label>Si lo bloqueas este usuario <b>NO</b> podra enviarte mas mensajes y tu tampoco a el, tambien el o ella <br/>NO podra acceder a tu perfil(si lo tienes...)</label>
+                        <center>
+                            <button id = "si_bloquear" class = 'btn btn-info'> Si</button>
+                            <button id = "no_bloquear" class = 'btn btn-info'> No</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            
+            <!--***************************************************   PERFIL DEL OTRO   *************************************************** -->
+            <div class="row text-center" style="display: none;">
+                <div class="col-md-4 col-sm-4">
+                <a class="fancybox-media" title="Solo los trabajadores tienen perfiles de usuario en SIF" href="#perfilOtro" id="verPerfilOtro">
+                    <img src="assets/img/portfolio/image.jpg" class="img-responsive " alt="" />
+                </a>
+                <div id="perfilOtro" style="display: none;">
+                    
+                </div>
+                </div>
+            </div>
+            
+            <!--***************************************************   CambiarTitulo   ***************************************************-->
+            <div class="row text-center" style="display: none;">
+                <div class="col-md-4 col-sm-4">
+                <a class="fancybox-media" title="Solo los trabajadores tienen perfiles de usuario en SIF" href="#cambioTit" id="cambiar_titulo">
+                    <img src="assets/img/portfolio/cambiarTit.jpg" class="img-responsive " alt="" />
+                </a>
+                <div id="cambioTit" style="display: none;">
+                    <img src="assets/img/portfolio/cambiarTit.jpg" class="img-responsive " alt="" />
+                    <form id="form_cambiarTitulo">
+                        <center>
+                        <table >
+                            <tr>
+                                <td> <input type="text" name="nuevoTit" id="nuevoTit" placeholder="Nnuevo título aqui"/> </td>
+                            </tr>
+                            <tr>
+                                <td> <button id="enviar_tit" form="form_cambiarTitulo" type="submit" class = 'btn btn-info'> Enviar</button> </td>
+                            </tr>
+                        </table>
+                        </center>
+                    </form>
+                </div>
+                </div>
+            </div>
+
+            <!--***************************************************   COTIZAR DESDE CHAT  ***************************************************-->
+            <div class="row text-center" style="display: none;">
+                <div class="col-md-4 col-sm-4">
+                <a class="fancybox-media" title="Presiona en nueva fila para a&ntilde;adir una nueva fila. Y luego presiona el bot&oacute;n cotizar para enviar" href="#cotizacion" id="cotizar">
+                    <img src="assets/img/portfolio/cotizar.jpg" class="img-responsive " alt="" />
+                </a>
+                <div id="cotizacion" style="display: none;">
+                    <img src="assets/img/portfolio/cotizar.jpg" class="img-responsive " alt="" />
+                    <label>Puedes elegir entre el tipo de cotizaci&oacute;n aqu&iacute;:</label>
+                    <select class="" id="tipo_fac">
+                        <option>Factura</option>
+                        <option>Nota</option>
+                    </select>
+                    <div id="f2" style="display: none;">
+                        <form id="form_nota">
+                            <center>
+                                <table style="border: 2px solid; text-align: center; min-width: 350px;">
+                                    <thead>
+                                        <tr>
+                                            Escribe la nota aqui: abajo
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> <input id="nota_titulo" name="nota_titulo" placeholder="Dale un titulo a la nota" /> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <textarea form="form_nota" rows="5" cols="50" name="nota_texto" id="nota_texto" ></textarea> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </center>
+                        </form>
+                        <center>
+                            <button id="enviar_nota" form="form_nota" type="submit" class = 'btn btn-info'> Enviar</button>
+                            <br /><br />
+                            <button form="form_nota" type="submit" class = 'btn'> Limpiar nota</button>
+                        </center>
+                    </div>
+                    <div id="f1">
+                    <form id="form_factura">
+                        <center>
+                        <table style="border: 2px solid; text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Cant.</th>
+                                    <th style="text-align: center;">Descripci&oacute;n</th>
+                                    <th style="text-align: center;">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <input id = "cant1" type="number"/> </td>
+                                    <td> <input id = "desc1" type="text"/> </td>
+                                    <td> <input id = "valor1" type="number"/> </td>
+                                </tr>
+                                <tr style="display: none;" id="fila2">
+                                    <td> <input id = "cant2" type="number"/> </td>
+                                    <td> <input id = "desc2" type="text"/> </td>
+                                    <td> <input id = "valor2" type="number"/> </td>
+                                </tr>
+                                <tr style="display: none;" id="fila3">
+                                    <td> <input id = "cant3" type="number"/> </td>
+                                    <td> <input id = "desc3" type="text"/> </td>
+                                    <td> <input id = "valor3" type="number"/> </td>
+                                </tr>
+                                <tr style="display: none;" id="fila4">
+                                    <td> <input id = "cant4" type="number"/> </td>
+                                    <td> <input id = "desc4" type="text"/> </td>
+                                    <td> <input id = "valor4" type="number"/> </td>
+                                </tr>
+                                <tr style="display: none;" id="fila5">
+                                    <td> <input id = "cant5" type="number"/> </td>
+                                    <td> <input id = "desc5" type="text"/> </td>
+                                    <td> <input id = "valor5" type="number"/> </td>
+                                </tr>
+                                <tr style="display: none;" id="fila6">
+                                    <td> <input id = "cant6" type="number"/> </td>
+                                    <td> <input id = "desc6" type="text"/> </td>
+                                    <td> <input id = "valor6" type="number"/> </td>
+                                </tr>
+                                <tr style="display: none;" id="fila7">
+                                    <td> <input id = "cant7" type="number"/> </td>
+                                    <td> <input id = "desc7" type="text"/> </td>
+                                    <td> <input id = "valor7" type="number"/> </td>
+                                </tr>
+                                <tr style="display: none;" id="fila8">
+                                    <td> <input id = "cant8" type="number"/> </td>
+                                    <td> <input id = "desc8" type="text"/> </td>
+                                    <td> <input id = "valor8" type="number"/> </td>
+                                </tr>
+                                <tr style="display: none;" id="fila9">
+                                    <td> <input id = "cant9" type="number"/> </td>
+                                    <td> <input id = "desc9" type="text"/> </td>
+                                    <td> <input id = "valor9" type="number"/> </td>
+                                </tr>
+                                <tr style="display: none;" id="fila10">
+                                    <td> <input id = "cant10" type="number"/> </td>
+                                    <td> <input id = "desc10" type="text"/> </td>
+                                    <td> <input id = "valor10" type="number"/> </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2"> Total: </td>
+                                    <td id="total"></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        </center>
+                        <br />
+                        <br />
+                    </form>
+                    <center>
+                    <button id= "nueva_fila_factura" class="btn btn-info"> Nueva fila </button>
+                    <button id ="calcular_total" class="btn"> Calcular total</button>
+                    <button id= "eliminar_fila_factura" class="btn btn-info"> Eliminar fila </button>
+                    </center>
+                    <br /><br /><br />
+                    <center>
+                        <button id="enviar_factura" form="form_factura" type="submit" class = 'btn btn-info'> Enviar</button>
+                        <!--<button class = 'btn btn-info'> Cancelar</button>-->
+                        <!--<button class = 'btn btn-info'> Limpiar cotización</button>-->
+                    </center>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            
+            <!--***************************************************    ENVIAR IMAGENES   ***************************************************-->
+            <div class="row text-center" style="display: none;">
+                <div class="col-md-4 col-sm-4">
+                    <a class="fancybox-media" title="Cuando ya estes lista presiona en enviar" href="#formulario" id = "carga_imagenes" >
+                        <!-- Path for image to open -->
+                        <!-- Path for image to display -->                        
+                    </a>
+                    <h5><strong>Click On Image</strong> to open image in popup</h5>
+                    
+                    <div id="formulario" style="display: none;">
+                        <img src="assets/img/portfolio/enviar_img.jpg" class="img-responsive " alt="" />
+                        <form id ="carga_img" enctype = "multipart/form-data">
+                            <label>Selecciona una imagen para subir</label>
+                            <br/>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+                            <input type="file" accept="image/*" value="" id="img" name="img"/>
+                            <br/>
+                            <input type='submit' value='Enviar'/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!--***************************************************       FIN   DE LAS OPCIONES DEL CHAT      ***************************************************-->
+            
+            
+            <div class="chat-box-div">
+                <div class="chat-box-head">
+                    <button type="button" class="superior btn btn-info" onclick="javascript:window.history.back();">
+                        Atras
+                    </button>
+                    <b id = 'titulo'></b>
+                    <div class="btn-group pull-right">
+                        <button type="button" class="superior btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        Menu
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a id="cargar_imagen" href="#"><span class="fa fa-image"></span>&nbsp;Enviar una imagen</a></li>
+                            <!--<li><a href="#"><span class="fa fa-map-marker"></span>&nbsp; Mostrar tu posici&oacute;n</a></li>-->
+                            <!--<li><a id="ver-perfil" href="#"><span class="fa fa-user"></span>&nbsp; Acerca de este usuario</a></li>-->
+                            <li class='divider'></li>
+                            
+                            <li id = "cotizaciones-cambTitulo"></li>
+                            
+                            <!--<li><a id="bloquear" href="#"><span class="fa fa-lock"></span>&nbsp; Bloquear</a></li>-->
+                            <li class="divider"></li>
+                            <li><a onclick="javascript:window.history.back();"><span class="fa fa-circle-o-notch"></span>&nbsp; Salir</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="panel-body chat-box-main" id="panel-chat"></div>
+                
+                <div class="chat-box-footer">
+                    <div class="input-group">
+                        <input type="text" id="mensaje_escrito" class="form-control" placeholder="Escribe tu mensaje aqui..."/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-info" type="button" id="enviar_mensaje">Enviar</button>
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+            <!--    -------------------------------------------------------------------- -->
+        </div>
+    </div>
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <!-- CORE BOOTSTRAP SCRIPTS  FILE -->
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/chat.js"></script>
+    <script src="assets/js/source/jquery.fancybox.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            //alert('Listo');
+            //****************************************************************
+            //****************************************************************
+            $("#bloquear").click(function(eve){
+                eve.preventDefault();
+                //alert("Quiere bloquear ");
+                $("#bloqueo").click();
+            });
+            
+            
+            
+            
+            
+            
+            
+            $("#cargar_imagen").click(function(eve){
+                eve.preventDefault();
+                //alert("img");
+                $("#carga_imagenes").click();
+            });//fin del mandar imagen
+            
+            
+            $("#ver-perfil").click(function(eve){
+                eve.preventDefault();
+                //alert("perfil #1");
+                $("#verPerfilOtro").click();
+                $.ajax({
+                    url:"http://localhost/SIF/.php",
+                    type:"post"
+                }).done(function(info){
+                    //alert("Envio el post");
+                    //alert(info);
+                    $("#perfilOtro").html(info);
+                });        
+            });//fin del ver al otro
+            
+            
+            $("#tipo_fac").change(function(){//funcion que cambia los metodos de busqueda
+            var tipoBusqueda = $('#tipo_fac').val();
+                if(tipoBusqueda == "Factura"){
+                    //alert("cambio.......");
+                    $("#f1").css({"display":"block"});
+                    $("#f2").css({"display":"none"});
+                }else{
+                    $("#f2").css({"display":"block"});
+                    $("#f1").css({"display":"none"});
+                }
+            });
+            $('.fancybox-media').fancybox({
+                openEffect: 'elastic',
+                closeEffect: 'elastic',
+                helpers: {
+                    title: {
+                        type: 'inside'
+                    }
+                }
+            });
+        });//Fin del ready
+    </script>
+</body>
+</html>

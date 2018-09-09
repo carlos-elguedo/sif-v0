@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Edita tu información laboral</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		
+                <script src="assets/js/jquery.min.js"></script>
+                <script type="text/javascript">
+		  $(document).ready(function(){
+                    //alert("ready");//setTimeout(codigo(), 1000);
+                    //alert("Pedira");
+                    $.ajax({
+                        url: "http://localhost/SIF/servidor/logica/editarPerfil.php",//url del servidor
+                        type: "post"
+                    }).done(function(res){//cuando ya este listo
+						$("body").html("");//limpiamos la salida
+						$("body").html(res);//ponemos la respuesta en la division de busqueda 
+					});//fin del done
+			});
+        </script>
+        
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link href="assets/js/source/jquery.fancybox.css" rel="stylesheet" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+        
+	</body>
+</html>

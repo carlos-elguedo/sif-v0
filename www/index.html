@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+    <head>
+
+        <meta charset="utf-8">
+        <title>SIF - Ingreso</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <style>
+            @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }  @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+            @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }           @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        </style>
+        <meta name="description" content="Sif Servicio Independiente Facil">
+        <meta name="author" content="Carlos Elguedo, Zamir Martelo, Rafael Castellar">
+
+        <!-- CSS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/supersized.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- JavaScript -->
+        <script src="assets/js/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/controladorVista.js" type="text/javascript"></script>
+        
+    </head>
+
+    <body>
+		<div id="mensaje"></div>
+		<div id="mensaje2"></div>
+        <div class="page-container">
+            <h1 id="logo">Ingresa a SIF</h1>
+            <!--<button id = 'cancelar' onclick="cancelar()">Cancelar</button>-->
+            <!--<img  src="img/logo.png">-->
+            <form id="formularioLogin" name="formularioLogin" >
+                <input type="email" name="username" class="username" id="no" placeholder="Tu correo" required>
+                <input type="password" name="password" class="password" id="pa" placeholder="Contraseña" required>
+                <input type = "checkbox" id="guardarDatos" name="guardarDatos"><label class="formulario">Recordar mis datos</label>
+                <button name="boton" id="boton">Entrar</button>
+                <div class="error"><span>+</span></div>
+            </form>
+            <div class="connect">
+                <button id="registro">Registrate en SIF</button>
+                <!--<p><a id="registro" href="#Registro"></a></p>-->
+            </div>
+        </div>
+        <div id="caja">
+            
+        </div>
+
+        
+        <div id ="Registro" style="display:none;">
+            Registrate en SIF, es fácil.<br>
+            <form id="formuReg" name="formuReg">
+                <input type="text" name="nombre" class="username" id="nombre" placeholder="Tu nombre completo" required autofocus>
+                <input type="date"  class="username" id="edad" min="1910-01-01" max="1998-12-31" placeholder="Tu fecha de nacimiento" required>
+				<input type="email" name="correo" class="username" id="correo" placeholder="Tu correo" required>    
+                <input type="password" name="pass1" class="password" id="pass1" placeholder="Contraseña" required>
+                <input type="password" name="pass2" class="password" id="pass2" placeholder="Confirma contraseña" required><br>
+                
+                <select name="Tipo de usuario" id = "seleccionado">
+                    <option value="Cliente">Cliente</option>
+                    <option value="Trabajador">Trabajador</option>
+                </select>
+                <!--<input type="checkbox" value="" alt="Aceptas los Terminos de uso" >-->
+                <br>
+                
+                <button name="botonRegistro" id="botonRegistro">Enviar</button>
+            </form>
+            <div class="connect">
+                <button id="volver_a_login">Volver</button>
+                <!--<p><a id="registro" href="#Registro"></a></p>-->
+            </div>
+        
+        </div>
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.8.2.min.js"></script>
+        <script src="assets/js/supersized.3.2.7.min.js"></script>
+        <script src="assets/js/supersized-init.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        <script>
+        $(document).ready(function(){
+            //alert("Todo Listo");
+        });//fin del ready
+        </script>
+    </body>
+
+</html>
+
